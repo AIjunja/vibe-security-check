@@ -9,14 +9,14 @@
 프로젝트 폴더에서 터미널을 열고 한 줄이면 됩니다.
 
 ```bash
-npx skills add AIjunja/vibe-security-check --skill 보안점검딸깍
+npx skills add AIjunja/vibe-security-check --skill vibe-security-check
 ```
 
 또는 Codex에게 이렇게 말하세요.
 
 ```text
-https://github.com/AIjunja/vibe-security-check 의 skills/보안점검딸깍 폴더를
-지금 프로젝트의 .agents/skills/보안점검딸깍 으로 받아 줘.
+https://github.com/AIjunja/vibe-security-check 의 skills/vibe-security-check 폴더를
+지금 프로젝트의 .agents/skills/vibe-security-check 로 받아 줘.
 받은 뒤 /skills 목록에 보이는지 확인해 줘.
 ```
 
@@ -24,8 +24,8 @@ https://github.com/AIjunja/vibe-security-check 의 skills/보안점검딸깍 폴
 
 | 도구 | 부르는 방법 |
 | --- | --- |
-| Codex | `$보안점검딸깍 내 서비스 점검해 줘` |
-| Claude Code | `/보안점검딸깍 내 서비스 점검해 줘` |
+| Codex | `$vibe-security-check 내 서비스 점검해 줘` |
+| Claude Code | `/vibe-security-check 내 서비스 점검해 줘` |
 
 결과에서 고칠 번호를 골라 "1번, 3번만 고쳐 줘"라고 말하면 그것만 고칩니다.
 
