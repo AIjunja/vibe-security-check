@@ -1,15 +1,15 @@
 # 보안점검딸깍
 
 바이브 코딩으로 만든 웹 서비스(Next.js, Vercel, Supabase, AI API)를 **쉬운 말로 보안 점검**하는 Codex, Claude Code용 스킬입니다.
-비밀 키, 화면과 서버, 로그인과 권한, Supabase RLS와 정책, 파일 보관함, AI 비용, 개인정보를 확인하고 **꼭 고칠 3개**를 골라 줍니다.
-점검만 하고 코드는 바꾸지 않습니다. `.env` 파일은 열지 않습니다.
+비밀 키, 화면과 서버, 로그인과 권한, Supabase RLS와 정책, 파일 보관함, AI 비용, 개인정보, 입력값(XSS, SQL 인젝션), 배포 전 운영 설정을 확인하고 **꼭 고칠 3개**를 골라 줍니다.
+점검 단계에서는 코드를 바꾸지 않고, 결과를 `SECURITY-REPORT.md`로 남깁니다. `.env` 파일은 열지 않습니다.
 
 ## 설치
 
 프로젝트 폴더에서 터미널을 열고 한 줄이면 됩니다.
 
 ```bash
-npx skills add AIjunja/vibe-security-check --skill vibe-security-check
+npx skills add AIjunja/vibe-security-check --skill vibe-security-check --agent codex -y
 ```
 
 또는 Codex에게 이렇게 말하세요.
@@ -27,7 +27,16 @@ https://github.com/AIjunja/vibe-security-check 의 skills/vibe-security-check �
 | Codex | `$vibe-security-check 내 서비스 점검해 줘` |
 | Claude Code | `/vibe-security-check 내 서비스 점검해 줘` |
 
-결과에서 고칠 번호를 골라 "1번, 3번만 고쳐 줘"라고 말하면 그것만 고칩니다.
+## 네 단계
+
+| 단계 | Codex에게 |
+| --- | --- |
+| 1. 점검 | `$vibe-security-check 내 서비스 점검해 줘` |
+| 2. 보고서 확인 | `SECURITY-REPORT.md`에서 "지금 꼭 고칠 것 3개" 보기 |
+| 3. 수정 | `지금 꼭 고쳐야 할 3개를 수정해 줘. 기존 기능과 디자인은 유지해 줘.` |
+| 4. 재검증 | `$vibe-security-check 다시 점검하고 수정 전후를 비교해 줘` |
+
+고친 뒤에는 고친 항목을 같은 기준으로 다시 점검하고, 수정 전후 표를 보고서에 덧붙입니다.
 
 ## 더 깊게 보고 싶다면
 
